@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>speedometer.ac</path>
+
+<effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>glass</object-name>  
+    </effect>
+
+  <animation>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <object-name>glass</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>glass</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <emission>
+      <red>   0.20 </red>
+      <green> 0.20 </green>
+      <blue>  0.20 </blue>
+      <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>velocities/groundspeed-kt</property>
+    <interpolation>
+      <entry><ind>  0.0 </ind><dep>  0 </dep></entry> <!--   0 km/h -->
+      <entry><ind> 8.7 </ind><dep>  26 </dep></entry> <!--  20 km/h -->
+      <entry><ind> 17.4 </ind><dep>  62 </dep></entry> <!--  30 km/h -->
+      <entry><ind> 26.1 </ind><dep>  97 </dep></entry> <!--  40 km/h -->
+      <entry><ind> 34.8 </ind><dep> 132 </dep></entry> <!--  50 km/h -->
+      <entry><ind> 43.5 </ind><dep> 168 </dep></entry> <!--  60 km/h -->
+      <entry><ind> 52.2 </ind><dep> 203 </dep></entry> <!--  70 km/h -->
+      <entry><ind> 60.85 </ind><dep> 238 </dep></entry> <!--  80 km/h -->
+      <entry><ind> 69.55 </ind><dep> 268 </dep></entry> <!--  90 km/h -->
+      <entry><ind> 78.24 </ind><dep> 305 </dep></entry> <!-- 100 km/h -->
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+    <center>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.00 </z-m>
+    </center>
+  </animation>
+
+      <animation>
+      <type>select</type>
+		 <object-name>gen</object-name>
+		 <object-name>oil</object-name>
+      <condition>
+        <not>
+          <property>engines/engine/running</property>
+        </not>
+      </condition>
+    </animation>
+
+  <animation>
+  <type>select</type>
+  <object-name>left</object-name>
+  <condition>
+    <equals>
+     <property>controls/lighting/left_turn</property>
+     <value>1</value>
+    </equals>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>right</object-name>
+  <condition>
+    <equals>
+     <property>controls/lighting/right_turn</property>
+     <value>1</value>
+    </equals>
+  </condition>
+ </animation>
+
+</PropertyList>

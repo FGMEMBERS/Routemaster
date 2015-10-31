@@ -1,0 +1,11 @@
+Anders Gidenstam  (anders(at)gidenstam.org)
+  - Crash tender FlightGear configuration
+  - Crash tender Flight Dynamics Model configuration
+  - Crash tender 3d model animations
+
+The model borrows content from the following authors' contributions
+to FlightGear:
+
+Alexis Bory
+ - The crash tender 3d model.
+   (From http://scenemodels.flightgear.org/download/SharedModels.tgz)

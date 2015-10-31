@@ -1,0 +1,128 @@
+<!-- FDM for "Routemaster" based on Jeep FDM By Detlef FABER -->
+
+<airplane mass="19000">
+
+  <approach speed="20" aoa="2" fuel="0.8">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.15"/>
+    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="0.15"/>
+    <control-setting axis="/controls/engines/engine[0]/boost" value="0"/>
+  </approach>
+
+  <cruise speed="20" alt="1000" fuel="0.8">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/boost" value="1"/>
+  </cruise>
+
+<fuselage ax="3.512"  ay="0" az="1.578" bx="2.95" by="0" bz="2.195" width="3.12" taper="0.18" cy="2.5" cz="2.15"/>
+<fuselage ax="2.95"  ay="0" az="2.195" bx="-2.215" by="0" bz="2.195" width="3.12" taper="1.0" cy="3.5" cz="2.15"/>
+<fuselage ax="-2.15" ay="0" az="2.195" bx="-3.333" by="0" bz="1.95" width="3.02" taper="0.10" cy="3.15" cz="2.15"/>
+
+  <wing x="0.0" y="0.0" z="3.910"
+        taper="1.0"
+        camber="0"
+        length="1.87"
+        chord="3.0" >
+  </wing>
+
+  <mstab x="0.0" y="0.0" z="2.0"
+         length="1.8"
+         chord="1.2">
+  </mstab>
+
+ <propeller x="3.078" y="0" z="1.188"
+         mass="1299.3"
+         moment="15"
+         radius="5.90"
+	   cruise-speed="35"
+         cruise-rpm="1032"
+          cruise-alt="100"
+          cruise-power="270"
+          contra="1"
+          gear-ratio="0.20"
+          min-rpm="130"
+          takeoff-power="390"
+          takeoff-rpm="1100">
+  <actionpt x="0.030" y="0" z="2.29" />
+ <control-input axis="/controls/engines/engine[0]/propeller-pitch" control="ADVANCE"/>
+ <piston-engine eng-power="390" 
+                eng-rpm="5500" 
+                displacement="700"
+                compression="21.0"
+                wastegate-mp="42"
+                supercharger="1"/>
+  <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+  <control-input axis="/controls/engines/engine[0]/starter" control="STARTER"/>
+  <control-input axis="/controls/engines/engine[0]/magnetos" control="MAGNETOS"/>
+  <control-input axis="/controls/engines/engine[0]/mixture" control="MIXTURE"/>          
+</propeller>
+
+  <!-- jet x="0.278" y="0" z="1.088"
+       n1-idle="30"
+       n1-max="70"
+       n2-idle="35"
+       n2-max="75"
+       egt="850"
+       tsfc="0.1"
+       mass="800"
+       thrust="1850"
+       rotate="-180" >
+       <actionpt x="1.230" y="0" z="-0.079" />
+       <control-input axis="/controls/gear/brake-right" control="THROTTLE"/>
+       <control-input axis="/controls/engines/engine[0]/throttle" control="THROTTLE"/>
+       <control-input axis="/controls/engines/engine[0]/mixture" control="VECTOR" src0="0" src1="1" dst0="1" dst1="0"/>
+  </jet -->
+
+  <tank x="0.0" y="0" z="0.71" capacity="198.0"/>
+
+  <gear x="2.86" y="1.213" z="-0.1"
+        compression="0.195"
+        dfric="1.03"
+        spring="2.7"
+        damp="1.8">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/flight/aileron" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.6" dst1="0.6"/>
+  </gear>
+
+  <gear x="2.860" y="-1.213" z="-0.1"
+        compression="0.195"
+        dfric="1.03"
+        spring="2.7"
+        damp="1.8">
+        <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
+        <control-input axis="/controls/flight/aileron" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.6" dst1="0.6"/>
+  </gear>
+
+  <gear x="-1.393" y="1.413" z="-0.1"
+        compression="0.195"
+        dfric="0.95"
+        spring="2.98"
+        damp="1.98">
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+  </gear>
+
+  <gear x="-1.393" y="-1.413" z="-0.1"
+        compression="0.195"
+        dfric="0.95"
+        spring="2.98"
+        damp="1.98">
+        <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
+  </gear>
+
+  <hitch name="aerotow"
+         x="-1.523" y="0" z="1.2"
+         force-is-calculated-by-other="0">
+         <tow length="10"
+              weight-per-meter="0.035"
+              elastic-constant="9000"
+              break-force="1000000"
+              mp-auto-connect-period="0.0"/>
+         <winch max-tow-length="100"
+                min-tow-length="20"
+                initial-tow-length="20"/>
+         <control-input axis="/controls/aerotow/find-aircraft" control="FINDAITOW"/>
+  </hitch>
+  
+  <ballast x="-1.1" y="0" z="-4.235" mass="2500"/>
+
+</airplane>

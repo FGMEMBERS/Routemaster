@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- $Id: Routemaster-submodels.xml,v 1.1 2008-03-31 23:50:43 anders Exp $ -->
+<!--
+  Routemaster model for FlightGear.
+
+  Copyright (C) 2008  Anders Gidenstam  (anders(at)gidenstam.org)
+  This file is licensed under the GPL license version 2 or later.
+-->
+<PropertyList>
+
+ <submodel>
+  <name>marker</name>
+  <!-- model>Aircraft/Submarine_Scout/Models/65lb_bomb.ac</model -->
+  <model>Models/Geometry/null.ac</model>
+  <trigger>/tmp/foam-trigger</trigger>
+  <speed>80</speed>
+  <repeat>false</repeat>
+  <count>-1</count>
+  <x-offset> 14.76 </x-offset>
+  <y-offset>  0.0  </y-offset>
+  <z-offset> 11.15 </z-offset>
+  <yaw-offset>0</yaw-offset>
+  <pitch-offset>15</pitch-offset>
+  <wind>false</wind>
+  <eda>3.68</eda>
+  <weight>10</weight>
+  <cd>0.05</cd>
+  <impact>true</impact>
+  <impact-reports>/sim/ai/aircraft/impact/foam</impact-reports>
+ </submodel>
+
+</PropertyList>

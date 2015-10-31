@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!-- $Id: Routemaster.xml,v 1.8 2010-01-19 21:40:53 anders Exp $ -->
+<!--
+  Routemaster model for FlightGear.
+
+  Copyright (C) 2007 - 2010  Anders Gidenstam  (anders(at)gidenstam.org)
+  This file is licensed under the GPL license version 2 or later.
+
+  The 3d model is by Alexis Bory.
+-->
+<PropertyList>
+
+ <sim>
+
+  <description>AEC Regent III Routemaster</description>
+  <author>Martien van der Plas</author>
+  <status>experimental</status>
+  <aircraft-version>0.1</aircraft-version>
+
+  <flight-model>jsb</flight-model>
+  <aero>Routemaster</aero>
+
+  <presets>
+   <onground>true</onground>
+  </presets>
+
+  <startup>
+   <splash-texture>Aircraft/Routemaster/Routemaster-splash.jpg</splash-texture>
+  </startup>
+        
+  <sound>
+   <audible>false</audible>
+   <path/>
+  </sound>
+
+  <model>
+   <path>Aircraft/Routemaster/Models/Routemaster.xml</path>
+  </model>
+
+  <submodels>
+   <serviceable type="bool">true</serviceable>
+   <path>Aircraft/Routemaster/Models/Routemaster-submodels.xml</path>
+  </submodels>
+ 
+  <systems>
+
+   <electrical>
+    <path/>
+   </electrical>
+
+   <static>
+   </static>
+
+  </systems>
+  <instrumentation>
+   <path/>
+  </instrumentation>
+
+  <view n="0">
+   <internal archive="y">true</internal>
+   <config>
+    <!-- x/y/z == right/up/back -->
+    <x-offset-m archive="y"> 0.5</x-offset-m>
+    <y-offset-m archive="y"> 2.0</y-offset-m>
+    <z-offset-m archive="y">-2.60</z-offset-m>
+    <pitch-offset-deg>-5</pitch-offset-deg>
+    <default-field-of-view-deg type="double">65.0</default-field-of-view-deg>
+   </config>
+  </view>
+
+  <chase-distance-m type="double" archive="y">-25.0</chase-distance-m>
+
+  <multiplay>
+   <generic>
+    <!-- Beam trigger -->
+    <int n="0" type="int">0</int>
+   </generic>
+  </multiplay>
+
+  <help>
+   <key>
+    <name>,</name>
+    <desc>Brakes.</desc>
+   </key>
+   <key>
+    <name>.</name>
+    <desc>Accelerator.</desc>
+   </key>
+   <key>
+    <name>Joystick trigger</name>
+    <desc>Enable foam projector.</desc>
+   </key>
+   <key>
+    <name>shift + B</name>
+    <desc>Toggle parking brake.</desc>
+   </key>
+   <key>
+    <name></name>
+    <desc></desc>
+   </key>
+  </help>
+
+ </sim>
+
+ <nasal>
+  <BeamControl>
+   <script>
+</script>
+  </BeamControl>
+ </nasal>
+
+ <input>
+  <keyboard>
+   <key n="82">
+    <name>R</name>
+    <desc>Toggle reverse gear.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>
+      var dir = "/fdm/jsbsim/propulsion/engine/yaw-angle-rad";
+      setprop(dir, (getprop(dir) == 0) ? 3.14159265 : 0.0);
+     </script>
+    </binding>
+   </key>
+   <key n="102">
+    <name>f</name>
+    <desc>Fire foam projector.</desc>
+    <binding>
+     <command>nasal</command>
+     <script>
+      controls.trigger(1);
+     </script>
+    </binding>
+    <mod-up>
+     <binding>
+      <command>nasal</command>
+      <script>
+       controls.trigger(0);
+      </script>
+     </binding>
+    </mod-up>
+   </key>
+  </keyboard>
+ </input>
+
+</PropertyList>
